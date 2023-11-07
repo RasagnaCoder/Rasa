@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task-2-temperature conversion</title>
+    <style>
+        * {
+            margin: 0px;
+            border: 0px;
+        }
+        input[type="number"] {
+            padding: 4px;
+            border: 4px solid blue;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        #celsius{
+            height: 60px;
+            width: 200px;
+            font-size: 20px;
+        }
+        #f,#k{
+            height: 60px;
+            width: 200px;
+            border: 2px solid goldenrod;
+            border-radius: 4px;
+            padding: 5px;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        #head {
+            height: 40px;
+            background-color: rgb(216, 160, 56);
+            color: black;
+            display: flex;
+            justify-content: center;
+        }
+        .main {
+            height: 600px;
+            background-color: rgb(157, 211, 75);
+            background-image: url("https://thumbs.dreamstime.com/z/term%C3%B3metro-con-alta-temperatura-en-la-ciudad-fondo-de-sol-brillante-concepto-ola-calor-162923878.jpg");
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .body {
+            height: 300px;
+            width: 300px;
+            background-color:orange;
+            color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+        button {
+            height: 30px;
+            width: 140px;
+            margin: 10px;
+            font-size: 20px;
+            border-radius: 3px;
+        }
+        button:active{
+            background-color: rgb(159, 234, 46);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="head">
+        <h1>TEMPERATURE CONVERTER</h1>
+    </div>
+    <div class="main">
+        <div class="body">
+            <label for="celsius">Enter temperature in Celsius:</label>
+            <input id="celsius" type="number" oninput="temperatureconversion()"  placeholder="Enter temperature">
+            <input id='f'  placeholder="To fahrenheit">
+            <input id='k'  placeholder="To kelvin">
+            <button onclick="clearInput()" >Clear</button>
+        </div>
+    </div>
+
+    <script>
+        function temperatureconversion() {
+            var k = document.getElementById('celsius').value;
+            var fahrenheit = (k * 9 / 5) + 32;
+            var k1 = document.getElementById('celsius').value;
+            var celsius = parseFloat(k1);
+            var kelvin = celsius + 273.15;
+            document.getElementById('f').value = `${fahrenheit.toFixed(2)} °F`;
+            document.getElementById('k').value = `${kelvin.toFixed(2)} K`;
+        }
+        function clearInput() {
+            document.getElementById('celsius').value = '';
+            document.getElementById('f').value = '';
+            document.getElementById('k').value = '';
+        }
+    </script>
+
+</body>
+
+</html>
